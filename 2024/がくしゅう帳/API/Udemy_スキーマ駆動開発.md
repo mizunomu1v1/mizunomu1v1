@@ -128,6 +128,7 @@ task buildSpringServer(type: org.openapitools.generator.gradle.plugin.tasks.Gene
     - @Service
     - @Repository
 - @RequiredArgsConstructorでコンストラクタを自動生成までやろう 
+- エンティティとかロジック変わらないクラスは意味ないのでDIしない
 
 ## APIの実装
 
@@ -152,6 +153,8 @@ task buildSpringServer(type: org.openapitools.generator.gradle.plugin.tasks.Gene
 - Adviceは挟みこむのニュアンス。独自のやつをね
 - `@ExceptionHandler`で該当exceptionが投げられた時に動作するようになる
 - rfc7807というエラーレスポンスの模範がある、見てみそ
+- CustomValidationException: バリデーションエラーを表すためにスローされる例外。
+- CustomExceptionHandler: スローされた例外をキャッチし、クライアントにエラーレスポンスを返すクラス。
 
 ### ロケーションヘッダ
 
