@@ -1,3 +1,4 @@
+
 document.getElementById("app").innerHTML = `
-<h1>イルカの嘘に気を付けろ🐬</h1>
+<h1>🌟🐬mizunomu1v1🌈🥚</h1>
 `;
