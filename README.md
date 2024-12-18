@@ -1,5 +1,12 @@
 ### 💗 Welcome to My Internet 💗
 
-ここはmizunomu1v1のインターネッツです❗❗
+## ようこそ
+
+_ここはmizunomu1v1のインターネッツです！_
  
- <img src="img/ebsb_1.png" width=10%><img src="img/ebsb_2.png" width=10%>
+ <img src="img/usg.png" width=15%>
+
+
+## ぷにねこカウンター
+
+_あなたは**22222**人目のぷにねっこです🫖_
