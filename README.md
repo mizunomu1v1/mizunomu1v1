@@ -10,10 +10,6 @@ _ここはmizunomu1v1のインターネッツです！_
 
 _あなたは**22222**人目のぷにねっこです🫖_
 
-## 読書のおもいで
-
-- [プロを目指す人のためのTypeScript入門](notes/TypeScript/プロを目指す人のためのTypeScript入門/00_目次.md)
-
 ## どうぐばこ
 
 - [テーブル作成スクリプト](tool/table_create.ps1)
