@@ -4,11 +4,12 @@
 
 ### きっかけ
 
-コーディング中に、簡単な英単語すら空で打てない。yearはいい、monthは強敵だ、こんなところでいちいち時間を使いたくない。月って打ったらmonthに変換してくれたらどれだけ嬉しいか
+コーディング中に、簡単な英単語すら空で打てない！yearはいい、monthはなんか、一瞬悩む！
+こんなところでいちいち時間を使いたくない。月って打ったらmonthに変換されてほしいんだ
 
 ### 作りたいもの
 
-VScodeで日本語打って変換したら英単語にする、月→変換→Definitionといった感じで
+VScodeで日本語打って変換したら英単語にする、入力：月 → 変換：Definitionといった感じで！
 
 ### 翻訳APIの選定
 
@@ -17,48 +18,55 @@ VScodeで日本語打って変換したら英単語にする、月→変換→De
 - OpenAI GPT
   - 従量課金制は怖いのでやめよう
 - MyMemory API
-  - GETでパラメータをURLにくっつけるタイプか、ちょっと怖いな！！
+  - GETでパラメータをURLにくっつけるタイプか…ちょっと怖いな！！
 - DeepL
-  - 無料もあって特にデメリットもなさげ…？
+  - 無料もあるし月の変換数制限以外はデメリットもなさげ？
  
-## やってみよう！～チュートリアル編～
+## やってみよう、チュートリアル！
 
 ### GitHubでリポジトリを作る
 
-- モチベーションを保つために、かわいい名前にした https://github.com/mizunomu1v1/jp-to-en-naming-magic
+- モチベーションを保つために、かわいい名前にしたよォ～🥰🐈 
+  - https://github.com/mizunomu1v1/jp-to-en-naming-magic
 
 ### VSCodeで環境設定
 
-- クローンしたらcd ..
-- 親ディレクトリでyo codeを実行でおじさんを召還
-  - どんな種類の拡張機能を作りたい？：New Extension (TypeScript)
-  - 拡張機能の名前は？: jp-to-en-naming-magic
-  - 拡張機能の識別子は？: 未記入で2と同じになる
-  - 拡張機能の説明は？: いったん未記入
-  - Gitリポジトリを初期化する？: もう作ってたのでn
-  - ソースコードをWebpackでバンドルする？: 正直よくわからんのでn
-  - どのパッケージマネージャーを使う？: npm
+- まずは`npm install -g yo generator-code`でYeoman（開発便利ツール）をインストール
+- リポジトリをVSCodeにクローンしたら`cd ..`
+- 親ディレクトリで`yo code`
+- おじさんが出てくるので、質問に答える形でひな形をインストール出来る
+  - どんな種類の拡張機能を作りたい？
+    - New Extension (TypeScript)
+  - 拡張機能の名前は？
+    -  jp-to-en-naming-magic
+  - 拡張機能の識別子は？:
+    - 未記入で2と同じになる
+  - 拡張機能の説明は？:
+    - いったん未記入
+  - Gitリポジトリを初期化する？:
+    - もう作ってたので`n`
+  - ソースコードをWebpackでバンドルする？:
+    - 正直よくわからんので`n`
+  - どのパッケージマネージャーを使う？
+    - npm
 
 ### できたファイルを見る
 
-- extension.tsが本丸のようだ
+- **extension.ts**が本丸のようだ
 - いろいろ英語で書いてあるので翻訳すると…
-  - モジュール 'vscode' には、VS Code の拡張性 API が含まれているよ
-    - これをインポートすることで拡張機能用の便利機能が使えまっせ
-  - activateメソッド直下に書かれているコンソールログは一度だけ実行されるよ
-  - コマンドはpackage.jsonファイルで定義されているよ
-    - コマンドの実装はregisterCommandメソッドで指定してね
-    - 注意！ commandIdパラメータと、package.jsonのcommandフィールドは一致させること
+  - モジュール'vscode'にはVSCodeの拡張性APIが含まれているので、インポートすると拡張機能用の便利機能が使えるよ
+  - `activate`メソッド直下に書かれているコンソールログは一度だけ実行されるよ
+  - コマンドは**package.json**ファイルで定義されているよ、実装は`registerCommand`メソッドで指定してね
+    - 注意！`commandId`パラメータと、package.jsonの`command`フィールドは一致させること
   - サンプルでコマンド実行させるたびにメッセージボックス表示されるようにしといたから、やってみな
-  - ちなみにdeactivateメソッドは、拡張機能が無効化されたときに呼び出されるよ
-- 英語だが、全部書いてあったじゃないか…！！
-- これがそのまま読めたら本当に抵抗なく拡張機能が作れたのだろう
+  - ちなみに`deactivate`メソッドは、拡張機能が無効化されたときに呼び出されるよ
+- …全部書いてあるじゃないか！！
+- もしも英語が読めたなら本当に抵抗なく拡張機能が作れただろう
  
-### 実行してみよう
+### じゃあ実行してみよう
 
-- F5でデバッグ用VScodeが立ち上がる
-- ここでターミナルから登録したコマンドが実行できるぞ
-- 一度開いたらCtrl+Rでリロードだ
+- F5でデバッグ用VScodeが立ち上がるので、ターミナルから登録したコマンドが実行できるぞ
+- Ctrl+Rでリロードできるので、一回開いたらそのまんまでOK
 - コンソールログはデバッグ用VScode＞Ctrl+Shift+Iで確認しよう
 
 ### サンプルPOSTコマンドを作ってみる
@@ -68,56 +76,49 @@ VScodeで日本語打って変換したら英単語にする、月→変換→De
     - https://jsonplaceholder.typicode.com/todos/1
   - 入力値からPOSTできる
   - 結果が確認できる
- 
-### asyncとawaitとかよく分かってない
+- 作ってみると**extension.ts**が結構混雑することが分かったので…ファイル分割してみた
+  - https://github.com/mizunomu1v1/jp-to-en-naming-magic/blob/main/src/commands/sample/callPostApi.ts
+
+
+### 【思ったことのコーナー】
+
+#### asyncとawaitとかよく分かってない
 
 - とはいえAPI呼び出しなど、どれだけ時間がかかるか分からない処理をするなら避けては通れない
 - asyncを使うとこの関数は非同期でーす！！いったん待っててください！が出来るので、あんまり怖がらずに使った方がいい
 - そんでawaitが、こいつ遅いんで、結果まってやってください、って感じ
 - もう一人仲間が、戻り値のPromiseは、あとでこいつら結果返ってきますんで！！と周りの目をごまかしてくれる
+- 要するに…
+  - asyncで関数を非同期にする
+  - awaitでメソッド結果を待たせる
+  - Promiseで後から戻り値に結果持ってきてくれる
 
-### fetchもかかさずに
+
+#### fetchもかかさずに
 
 - APIでデータのやり取りするのに使う関数
-- もちろん時間がかかる処理なので、上記のやつらを使うということです
+- もちろん時間がかかる処理なので、上記のやつらを使うということだ
 
-### できた
+## 作ってみよう、拡張機能！
 
-extension.tsがさっそく混雑してきたのでファイル分割してみた 
-https://github.com/mizunomu1v1/jp-to-en-naming-magic/blob/main/src/commands/sample/callPostApi.ts
+### コマンドを設定する
 
-## いよいよ作ってみる
-
-### 流れをおさらい
-
-- package.jsonにコマンドを設定
+- **package.json**にコマンドを設定
 
 ```ts
     "contributes": {
     "commands": [
       {
-        "command": "extension.callPostApi",
-        "title": "callPostApi"
-      },
-      {
-        "command": "extension.callTranslateApi",
-        "title": "callTranslateApi"
+        "command": "extension.translate",
+        "title": "translate"
       }
     ]
 ```
 
-  - extension.tsにコマンド呼び出しを追加
+  - **extension.ts**にコマンド呼び出しを追加
  
   ```ts
-export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    //postApi呼び出しコマンド
-    vscode.commands.registerCommand('extension.callPostApi', callPostApi),
-    //translateApi呼び出しコマンド
-    vscode.commands.registerCommand(
-      'extension.callTranslateApi',
-      callTranslateApi,
-    ),
+    vscode.commands.registerCommand('extension.translate', translate),
   );
-}
 ```
